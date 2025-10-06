@@ -1,5 +1,3 @@
-
-import React from "react";
 import type { Metadata } from "next";
 import AppNavbar from "@/components/AppNavbar";
 import Footer from "@/components/Footer";
