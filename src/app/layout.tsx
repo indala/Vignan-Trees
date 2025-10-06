@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import type { Metadata } from "next";
 import AppNavbar from "@/components/AppNavbar";
@@ -7,9 +9,10 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// Base site URL for SEO
+// Base site URL
 const siteUrl = "https://vignantrees.vercel.app";
 
+// --- METADATA ---
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
@@ -34,21 +37,15 @@ export const metadata: Metadata = {
     "medicinal plants",
     "exotic plants",
   ],
-
-  // Authors (GitHub + LinkedIn)
   authors: [
     { name: "Mohan Kumar Indala", url: "https://github.com/indala" },
     { name: "Mohan Kumar Indala", url: "https://linkedin.com/in/indalamohankumar" },
   ],
-
-  // Icons / favicon
   icons: {
     icon: "/tree_icon.png",
     shortcut: "/tree_icon.png",
     apple: "/tree_icon.png",
   },
-
-  // Open Graph
   openGraph: {
     title: "Vignan Plants | Explore University Flora",
     description:
@@ -66,8 +63,6 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
     title: "Vignan Plants | Explore University Flora",
@@ -76,18 +71,16 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@Mr_Indala",
   },
-
-  // Robots & Canonical
   robots: { index: true, follow: true },
   alternates: { canonical: siteUrl },
+  verification: {
+    google: "78ZqN4FfGLxnp8Opq-U0szIVh0Ep7oBxNJWskJYu7-Y",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // Structured Data JSON-LD
+// --- ROOT LAYOUT ---
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // JSON-LD structured data
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -113,7 +106,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppNavbar />
-        <main >{children}</main>
+        <main>{children}</main>
         <Footer />
         <ScrollToTopButton containerRef={null} />
 
